@@ -120,7 +120,7 @@ const Index = () => {
         {/* Header with controls */}
         <div className="flex justify-between items-center mb-8">
           <h1 className={`text-3xl font-bold bg-gradient-to-r ${isDarkMode ? 'from-cyan-400 to-purple-400' : 'from-blue-600 to-purple-600'} bg-clip-text text-transparent`}>
-            Precision Timer
+            LADDU Stopwatch
           </h1>
           <div className="flex gap-2">
             <Button
@@ -235,73 +235,75 @@ const Index = () => {
         )}
       </div>
 
-      <style jsx>{`
-        .clock-glow {
-          text-shadow: 0 0 20px ${isDarkMode ? 'rgba(34, 197, 94, 0.5)' : 'rgba(59, 130, 246, 0.3)'};
-          animation: pulse-glow 2s ease-in-out infinite alternate;
-        }
-        
-        .stopwatch-glow {
-          text-shadow: 0 0 20px ${isDarkMode ? 'rgba(168, 85, 247, 0.5)' : 'rgba(147, 51, 234, 0.3)'};
-          animation: ${isRunning ? 'running-glow 0.5s ease-in-out infinite alternate' : 'pulse-glow 2s ease-in-out infinite alternate'};
-        }
-        
-        .button-ripple {
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .button-ripple:before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 0;
-          height: 0;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.3);
-          transform: translate(-50%, -50%);
-          transition: width 0.6s, height 0.6s;
-        }
-        
-        .button-ripple:active:before {
-          width: 300px;
-          height: 300px;
-        }
-        
-        .lap-item {
-          animation: fade-in 0.3s ease-out;
-        }
-        
-        @keyframes pulse-glow {
-          from {
-            text-shadow: 0 0 20px ${isDarkMode ? 'rgba(34, 197, 94, 0.3)' : 'rgba(59, 130, 246, 0.2)'};
+      <style>
+        {`
+          .clock-glow {
+            text-shadow: 0 0 20px ${isDarkMode ? 'rgba(34, 197, 94, 0.5)' : 'rgba(59, 130, 246, 0.3)'};
+            animation: pulse-glow 2s ease-in-out infinite alternate;
           }
-          to {
-            text-shadow: 0 0 30px ${isDarkMode ? 'rgba(34, 197, 94, 0.8)' : 'rgba(59, 130, 246, 0.5)'};
+          
+          .stopwatch-glow {
+            text-shadow: 0 0 20px ${isDarkMode ? 'rgba(168, 85, 247, 0.5)' : 'rgba(147, 51, 234, 0.3)'};
+            animation: ${isRunning ? 'running-glow 0.5s ease-in-out infinite alternate' : 'pulse-glow 2s ease-in-out infinite alternate'};
           }
-        }
-        
-        @keyframes running-glow {
-          from {
-            text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+          
+          .button-ripple {
+            position: relative;
+            overflow: hidden;
           }
-          to {
-            text-shadow: 0 0 40px rgba(168, 85, 247, 1);
+          
+          .button-ripple:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
           }
-        }
-        
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
+          
+          .button-ripple:active:before {
+            width: 300px;
+            height: 300px;
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          
+          .lap-item {
+            animation: fade-in 0.3s ease-out;
           }
-        }
-      `}</style>
+          
+          @keyframes pulse-glow {
+            from {
+              text-shadow: 0 0 20px ${isDarkMode ? 'rgba(34, 197, 94, 0.3)' : 'rgba(59, 130, 246, 0.2)'};
+            }
+            to {
+              text-shadow: 0 0 30px ${isDarkMode ? 'rgba(34, 197, 94, 0.8)' : 'rgba(59, 130, 246, 0.5)'};
+            }
+          }
+          
+          @keyframes running-glow {
+            from {
+              text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+            }
+            to {
+              text-shadow: 0 0 40px rgba(168, 85, 247, 1);
+            }
+          }
+          
+          @keyframes fade-in {
+            from {
+              opacity: 0;
+              transform: translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
